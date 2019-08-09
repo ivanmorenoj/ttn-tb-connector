@@ -6,4 +6,4 @@ COPY . /app
 
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
-CMD python ./ttnreceiver.py
+CMD python ./ttn_tb_connector.py
