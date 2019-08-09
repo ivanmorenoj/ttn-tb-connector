@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+    ThingsBoard:
+        ports:
+            - '80:9090'
+            - '1882:1883'
+            - '5683:5683/udp'
+        volumes:
+            - '~/.mytb-data:/data'
+            - '~/.mytb-logs:/var/log/thingsboard'
+        container_name: thingsboard
+        restart: unless-stopped
+        image: thingsboard/tb-postgres
+        networks: 
+            - thingsboard_net
+    
+    ttn-tb-connector:
+        container_name: connector
+        restart: unless-stopped
+        image: ivan28823/ttn-tb-connector
+        networks: 
+            - thingsboard_net
+        depends_on:
+            - "ThingsBoard"
+        volumes:
+            - './app/config:/app/config'
+
+networks:
+    thingsboard_net:

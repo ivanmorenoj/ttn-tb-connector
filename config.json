@@ -1,0 +1,12 @@
+{
+    "ttn": {
+        "app_id": "emca",
+        "access_key": "ttn-account-v2.Ebyo38DrTI5dynOb28aw0ExjDLYZGGsr4D6yanc9jcs"
+    },
+    "tb": {
+        "host": "thingsboard",
+        "port": 1883,
+        "token": "vYzJkNhrUqPSeB5lCpz5"
+    },
+    "delay": 180
+}

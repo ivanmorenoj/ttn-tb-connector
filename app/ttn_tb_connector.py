@@ -3,12 +3,24 @@ import ttn
 import json
 import paho.mqtt.client as tbmqtt
 
-TTN_APP_ID = "emca"
-TTN_ACCESS_KEY = "ttn-account-v2.Ebyo38DrTI5dynOb28aw0ExjDLYZGGsr4D6yanc9jcs"
 
-TB_HOST = "127.0.0.1"
-TB_ACCESS_TOKEN = "vYzJkNhrUqPSeB5lCpz5"
-TB_PORT = 1882
+with open('config/config.json') as config_file:
+    data_cfg = json.load(config_file)
+    
+TTN_APP_ID = data_cfg['ttn']['app_id']
+TTN_ACCESS_KEY = data_cfg['ttn']['access_key']
+
+TB_HOST = data_cfg['tb']['host']
+TB_ACCESS_TOKEN = data_cfg['tb']['token']
+TB_PORT = data_cfg['tb']['port']
+DELAY_TIME = data_cfg['delay']
+
+print("Wait to init for",DELAY_TIME, "secconds")
+try:
+    for i in range(DELAY_TIME):
+        time.sleep(1)
+except KeyboardInterrupt:
+    pass
 
 tb_client = tbmqtt.Client()
 
@@ -31,6 +43,8 @@ handler = ttn.HandlerClient(TTN_APP_ID, TTN_ACCESS_KEY)
 mqtt_client = handler.data()
 mqtt_client.set_uplink_raw_callback(uplink_raw_callback)
 mqtt_client.connect()
+
+print("Init connector")
 
 try:
     while True:

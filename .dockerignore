@@ -1,2 +1,3 @@
 app/emcasender.py
 app/ttnreceiver.py
+app/config
