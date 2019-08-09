@@ -1,3 +1,2 @@
-emcasender.py
-ttnreceiver.py
-sender.sh
+app/emcasender.py
+app/ttnreceiver.py
