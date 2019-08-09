@@ -6,7 +6,7 @@ import paho.mqtt.client as tbmqtt
 TTN_APP_ID = "emca"
 TTN_ACCESS_KEY = "ttn-account-v2.Ebyo38DrTI5dynOb28aw0ExjDLYZGGsr4D6yanc9jcs"
 
-TB_HOST = "35.238.206.29"
+TB_HOST = "127.0.0.1"
 TB_ACCESS_TOKEN = "vYzJkNhrUqPSeB5lCpz5"
 TB_PORT = 1882
 
