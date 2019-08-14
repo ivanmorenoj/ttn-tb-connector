@@ -7,13 +7,14 @@ import paho.mqtt.client as tbmqtt
 with open('config/config.json') as config_file:
     data_cfg = json.load(config_file)
     
-TTN_APP_ID = data_cfg['ttn']['app_id']
-TTN_ACCESS_KEY = data_cfg['ttn']['access_key']
+TTN_APP_ID      = data_cfg['ttn']['app_id']
+TTN_ACCESS_KEY  = data_cfg['ttn']['access_key']
 
-TB_HOST = data_cfg['tb']['host']
+TB_HOST         = data_cfg['tb']['host']
 TB_ACCESS_TOKEN = data_cfg['tb']['token']
-TB_PORT = data_cfg['tb']['port']
-DELAY_TIME = data_cfg['delay']
+TB_PORT         = data_cfg['tb']['port']
+
+DELAY_TIME      = data_cfg['delay']
 
 print("Wait to init for",DELAY_TIME, "secconds")
 try:
